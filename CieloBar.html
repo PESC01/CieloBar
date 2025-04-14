@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cileo Bar - Bebidas y Comidas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .menu-item:hover .menu-overlay {
+            opacity: 1;
+        }
+        
+        .menu-overlay {
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f59e0b;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .back-to-top {
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navbar -->
+    <header class="fixed w-full z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-cocktail text-2xl text-amber-500 mr-2"></i>
+                <h1 class="title-font text-xl font-bold text-gray-800">Cileo Bar</h1>
+            </div>
+            
+            <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <nav id="nav-menu" class="hidden md:flex space-x-8">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#menu" class="nav-link">Menú</a>
+                <a href="#galeria" class="nav-link">Galería</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#inicio" class="block py-2 nav-link">Inicio</a>
+            <a href="#menu" class="block py-2 nav-link">Menú</a>
+            <a href="#galeria" class="block py-2 nav-link">Galería</a>
+            <a href="#contacto" class="block py-2 nav-link">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero pt-24 pb-32 text-white flex items-center justify-center">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="title-font text-4xl md:text-5xl font-bold mb-4">Bienvenidos a Cileo Bar</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Donde los sabores se encuentran con la elegancia</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#menu" class="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                    Ver Menú
+                </a>
+                <a href="#contacto" class="border-2 border-white hover:bg-white hover:text-gray-800 font-semibold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                    Reservar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                         alt="Interior de Cileo Bar" 
+                         class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="title-font text-3xl font-bold mb-6 text-gray-800">Nuestra Historia</h2>
+                    <p class="text-gray-600 mb-4">Fundado en 2010, Cileo Bar nació de la pasión por crear experiencias gastronómicas memorables. Combinamos ingredientes frescos con técnicas innovadoras para ofrecerte lo mejor de la cocina contemporánea.</p>
+                    <p class="text-gray-600 mb-6">Nuestro bar cuenta con una selección exclusiva de licores y vinos, perfectamente maridados con nuestros platillos estrella.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-wine-glass-alt text-amber-500 text-xl mr-2"></i>
+                            <span>+50 tipos de bebidas</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-utensils text-amber-500 text-xl mr-2"></i>
+                            <span>Menú estacional</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-music text-amber-500 text-xl mr-2"></i>
+                            <span>Ambiente musical</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold mb-4 text-gray-800">Nuestro Menú</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Descubre nuestra selección de bebidas y platillos preparados con los mejores ingredientes.</p>
+            </div>
+            
+            <!-- Menu Tabs -->
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button id="bebidas-tab" class="px-6 py-2 text-sm font-medium rounded-l-lg bg-amber-500 text-white focus:outline-none">
+                        Bebidas
+                    </button>
+                    <button id="comidas-tab" class="px-6 py-2 text-sm font-medium rounded-r-lg bg-gray-200 text-gray-800 hover:bg-gray-300 focus:outline-none">
+                        Comidas
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Bebidas Menu -->
+            <div id="bebidas-menu" class="grid md:grid-cols-2 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Cóctel clásico" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$12.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Cóctel Clásico</h3>
+                        <p class="text-gray-600">Una mezcla perfecta de ginebra, vermut y un toque de aceituna.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1257&q=80" 
+                             alt="Margarita" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$10.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Margarita Especial</h3>
+                        <p class="text-gray-600">Tequila reposado, triple sec, jugo de lima y un borde de sal.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1130&q=80" 
+                             alt="Vino tinto" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$8.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Vino Tinto Reserva</h3>
+                        <p class="text-gray-600">Selección de uvas Cabernet Sauvignon añejadas en barricas de roble.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Cerveza artesanal" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$6.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Cerveza Artesanal</h3>
+                        <p class="text-gray-600">Selección de nuestras mejores cervezas locales de fermentación lenta.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comidas Menu (hidden by default) -->
+            <div id="comidas-menu" class="grid md:grid-cols-2 gap-8 hidden">
+                <!-- Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" 
+                             alt="Pasta" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$15.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Pasta al Pesto</h3>
+                        <p class="text-gray-600">Pasta fresca con pesto de albahaca, piñones y queso parmesano.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1081&q=80" 
+                             alt="Pizza" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$18.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Pizza Artesanal</h3>
+                        <p class="text-gray-600">Masa fermentada 48h con tomate natural, mozzarella y albahaca fresca.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" 
+                             alt="Ensalada" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$12.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Ensalada Cileo</h3>
+                        <p class="text-gray-600">Mezcla de hojas verdes, quinoa, aguacate, frutos secos y aderezo de miel.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden menu-item">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1127&q=80" 
+                             alt="Postre" 
+                             class="w-full h-full object-cover">
+                        <div class="menu-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">$8.99</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="title-font text-xl font-semibold mb-2">Postre del Chef</h3>
+                        <p class="text-gray-600">Tiramisú clásico con toque de licor de café y cacao en polvo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Ver Menú Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold mb-4 text-gray-800">Galería</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Un vistazo a nuestro ambiente y creaciones culinarias.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Interior del bar" 
+                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                         alt="Barra de bebidas" 
+                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Plato gourmet" 
+                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Evento especial" 
+                         class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-amber-500 font-semibold hover:text-amber-600">
+                    Ver más fotos
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold mb-4 text-gray-800">Lo que dicen nuestros clientes</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Las mejores margaritas de la ciudad. El ambiente es increíble y el servicio impecable. ¡Volveré seguro!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" 
+                             alt="Cliente satisfecho" 
+                             class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">María González</h4>
+                            <p class="text-sm text-gray-500">Cliente frecuente</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"La pasta al pesto es simplemente divina. Perfectamente cocinada y con sabores increíbles. Recomiendo totalmente."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                             alt="Cliente satisfecho" 
+                             class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">Carlos Martínez</h4>
+                            <p class="text-sm text-gray-500">Primera visita</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Excelente selección de vinos. El sommelier nos ayudó a elegir el perfecto maridaje para nuestra cena. Experiencia 10/10."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" 
+                             alt="Cliente satisfecho" 
+                             class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-semibold">Ana López</h4>
+                            <p class="text-sm text-gray-500">Celebración de aniversario</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="title-font text-3xl font-bold mb-4 text-gray-800">Contacto</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Reserva tu mesa o contáctanos para cualquier consulta.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="title-font text-xl font-semibold mb-4">Información</h3>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-map-marker-alt text-amber-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Dirección</h4>
+                                <p class="text-gray-600">Calle Principal 123, Ciudad</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <i class="fas fa-phone-alt text-amber-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Teléfono</h4>
+                                <p class="text-gray-600">+1 234 567 890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-amber-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">info@cileobar.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="title-font text-xl font-semibold mb-4">Horario</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="font-medium">Lunes - Viernes</span>
+                            <span class="text-gray-600">11:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium">Sábado</span>
+                            <span class="text-gray-600">10:00 AM - 12:00 AM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium">Domingo</span>
+                            <span class="text-gray-600">10:00 AM - 10:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-6 rounded-lg shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nombre</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Teléfono</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="date" class="block text-gray-700 font-medium mb-2">Fecha</label>
+                            <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-4 rounded-md transition duration-300">
+                            Enviar Reserva
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-64 md:h-96 w-full bg-gray-200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215256627466!2d-73.987844924164!3d40.74844097138885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689876487899!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cocktail text-2xl text-amber-500 mr-2"></i>
+                        <h3 class="title-font text-xl font-bold">Cileo Bar</h3>
+                    </div>
+                    <p class="text-gray-400">Donde los sabores se encuentran con la elegancia desde 2010.</p>
+                </div>
+                
+                <div>
+                    <h4 class="title-font text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-amber-500 transition">Inicio</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-amber-500 transition">Menú</a></li>
+                        <li><a href="#galeria" class="text-gray-400 hover:text-amber-500 transition">Galería</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-amber-500 transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="title-font text-lg font-semibold mb-4">Horario</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Lun-Vie: 11AM - 11PM</li>
+                        <li>Sáb: 10AM - 12AM</li>
+                        <li>Dom: 10AM - 10PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="title-font text-lg font-semibold mb-4">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-amber-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-amber-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-amber-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    
+                    <h4 class="title-font text-lg font-semibold mt-6 mb-2">Newsletter</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="Tu email" class="px-3 py-2 bg-gray-700 text-white rounded-l-md focus:outline-none w-full">
+                        <button class="bg-amber-500 hover:bg-amber-600 px-3 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Cileo Bar. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-amber-500 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center back-to-top opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Menu tabs
+        const bebidasTab = document.getElementById('bebidas-tab');
+        const comidasTab = document.getElementById('comidas-tab');
+        const bebidasMenu = document.getElementById('bebidas-menu');
+        const comidasMenu = document.getElementById('comidas-menu');
+        
+        bebidasTab.addEventListener('click', () => {
+            bebidasTab.classList.add('bg-amber-500', 'text-white');
+            bebidasTab.classList.remove('bg-gray-200', 'text-gray-800');
+            comidasTab.classList.add('bg-gray-200', 'text-gray-800');
+            comidasTab.classList.remove('bg-amber-500', 'text-white');
+            bebidasMenu.classList.remove('hidden');
+            comidasMenu.classList.add('hidden');
+        });
+        
+        comidasTab.addEventListener('click', () => {
+            comidasTab.classList.add('bg-amber-500', 'text-white');
+            comidasTab.classList.remove('bg-gray-200', 'text-gray-800');
+            bebidasTab.classList.add('bg-gray-200', 'text-gray-800');
+            bebidasTab.classList.remove('bg-amber-500', 'text-white');
+            comidasMenu.classList.remove('hidden');
+            bebidasMenu.classList.add('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
